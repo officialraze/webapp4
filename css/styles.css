@@ -1,0 +1,21 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+
+@import "_config.css";
+@import "_basic.css";
+@import "_content.css";
+@import "_navigation.css";
+@import "_login.css";
+@import "_artist.css";
+@import "_genres.css";
+@import "_songs.css";
+@import "_streams.css";
+@import "_settings.css";
+@import "_dark.css";
+@import "_error.css";
+@import "_events.css";
+@import "_playlists.css";

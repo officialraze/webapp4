@@ -1,0 +1,26 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+
+/* set variables */
+:root{
+	--primary-color: #636AFD;
+	--primary-color_light: #e0e1ff;
+	--text: #222;
+	--navigation_left: #6B6B6B;
+	--border: #C7C7C7;
+	--light_text: #9D9FB3;
+	--button: #ededed;
+	--border-bottom: #707070;
+	--background_dark_mode: #21252B;
+	--dark_mode_border: #30353B;
+	--dark_mode_input: #30353B;
+	--dark_mode_light: #DDDDDD;
+	--standard_shadow: 0 3px 27px rgba(0,0,0,0.39);
+	--standard_radius: 13px;
+	--standard_transition: all 0.3s ease;
+	--error_color: #b20000;
+}

@@ -1,0 +1,271 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+
+@import "_config.css";
+
+/* @group basics */
+
+.hidden {
+	display: none;
+}
+
+body {
+	font-family: 'DM Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.message {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	padding: 20px 40px;
+	box-sizing: border-box;
+	border-radius: var(--standard_radius);
+	transition: var(--standard_transition);
+	text-align: center;
+	z-index: 100;
+}
+.message.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: var(--standard_transition);
+}
+.message.true {
+	background: #3CB371;
+	color: #fff;
+}
+.message.false {
+	background: var(--error_color);
+	color: #fff;
+}
+
+h1 {
+	font-size: 48px;
+	line-height: 56px;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+}
+h3.short_title {
+	font-size: 28px;
+	line-height: 37px;
+	font-weight: 700;
+	color: var(--text);
+	margin-bottom: 40px;
+}
+ul {
+	padding: 0;
+	margin: 0;
+}
+.cf,
+.clear {
+	float: none;
+	clear: both;
+	line-height: 0;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	height: 0;
+}
+.back_link {
+	display: inline-block;
+	font-size: 14px;
+	background: var(--button);
+	color: var(--text);
+	text-decoration: none;
+	border-radius: 50px;
+	padding: 8px 12px;
+	text-align: center;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.back_link:hover {
+	background: var(--primary-color_light);
+	color: var(--primary-color);
+}
+
+/* @end */
+
+/* @group content */
+
+.main_content_wrapper {
+	padding-top: 80px;
+}
+
+.main_content_inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 150px;
+	box-sizing: border-box;
+}
+
+.profile {
+	text-align: center;
+}
+
+/* @end */
+
+
+/* @group currently playing */
+
+.currently_playing_inner {
+	height: 100%;
+	padding: 12px 20px;
+	box-sizing: border-box;
+}
+.currently_playing_wrap .song_information img,
+.currently_playing_wrap .song_title_artist,
+.currently_playing_wrap .song_information,
+.currently_playing_wrap .player_options {
+	float: left;
+}
+.currently_playing_wrap .song_title_artist {
+	position: relative;
+	top: 25px;
+	margin-left: 20px;
+}
+.currently_playing_wrap .song_title h4,
+.currently_playing_wrap .song_artist {
+	margin: 0;
+	margin-bottom: 4px;
+}
+.currently_playing_wrap .song_title {
+	color: inherit;
+	text-decoration: none;
+}
+.currently_playing_wrap .song_title:hover {
+	color: var(--primary-color);
+}
+.currently_playing_wrap .song_artist {
+	font-weight: 400;
+}
+.currently_playing_wrap .player_options {
+	position: relative;
+	top: 35px;
+	margin-left: 85px;
+}
+.currently_playing_wrap .player_options .previous,
+.currently_playing_wrap .player_options .play {
+	margin-right: 15px;
+}
+.currently_playing_wrap .player_options .play:hover path,
+.currently_playing_wrap .player_options .previous:hover path,
+.currently_playing_wrap .player_options .next:hover path {
+	cursor: pointer;
+	fill: var(--primary-color);
+}
+
+/* @end */
+
+/* @group new one */
+
+.audio-player {
+	text-align: center;
+	display: flex;
+	flex-flow: row;
+}
+.audio-player .album-image {
+	min-height: 100px;
+	width: 110px;
+	background-size: cover;
+}
+.audio-player .player-controls {
+	align-items: center;
+	justify-content: center;
+	flex: 3;
+}
+.audio-player .player-controls progress {
+	width: 90%;
+}
+.audio-player .player-controls progress[value] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--border);
+	color: red;
+	height: 10px;
+	border-radius: 45px;
+	overflow: hidden;
+}
+.audio-player .player-controls progress[value]::-webkit-progress-bar {
+	background-color: var(--border);
+	border-radius: 2px;
+	border: 1px solid #dfdfdf;
+	color: blue;
+	border-radius: 45px;
+	overflow: hidden;
+}
+.audio-player .player-controls progress::-webkit-progress-value {
+	background-color: var(--primary-color);
+	position: relative;
+	border-radius: 45px;
+	overflow: hidden;
+}
+.audio-player .player-controls progress[value]::-webkit-progress-bar:hover {
+	cursor: pointer;
+}
+.audio-player .player-controls progress[value]::-webkit-progress-value:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	background: #000;
+	border-radius: 50px;
+}
+.audio-player .player-controls p,
+.audio-player .player-controls p a {
+	font-size: 24px;
+	line-height: 32px;
+	text-decoration: none;
+	color: var(--text);
+	margin: 0;
+	margin-top: 25px;
+}
+.audio-player .player-controls p a:hover {
+	color: var(--primary-color);
+}
+.audio-player #play-btn {
+	position: relative;
+	top: 45px;
+	left: 40px;
+	background-image: url("../img/assets/play.svg");
+	background-size: 100%;
+	width: 20px;
+	overflow: hidden;
+	height: 26px;
+}
+.audio-player #play-btn.pause {
+	background-image: url("../img/assets/pause.svg");
+	position: relative;
+	top: 45px;
+	left: 40px;
+	background-size: 200%;
+	width: 20px;
+	overflow: hidden;
+	height: 26px;
+	background-position-x: center;
+	background-position-y: center;
+}
+.audio-player #play-btn:hover {
+	cursor: pointer;
+}
+
+.wrapper_search {
+	clear: both;
+	width: 100%;
+	height: auto;
+}
+
+/* @end */

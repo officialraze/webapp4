@@ -1,0 +1,117 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+body.dark {
+	color: #fff;
+}
+body.dark {
+  background: var(--background_dark_mode);
+}
+
+body.dark .navigation_left {
+	border-right: 1px solid var(--dark_mode_border);
+}
+
+body.dark input.search_field {
+  background-color: var(--dark_mode_input);
+}
+
+body.dark .navigation_left .main_navigation ul li a {
+  color: var(--dark_mode_light);
+}
+
+body.dark .navigation_left .main_navigation ul li.navigation_element a svg path {
+  fill: var(--dark_mode_light) !important;
+}
+
+body.dark p {
+  color: var(--dark_mode_light);
+}
+
+body.dark h1 {
+  color: var(--dark_mode_light) !important;
+}
+
+body.dark h2 {
+  color: var(--dark_mode_light) !important;
+}
+
+body.dark h3 {
+  color: var(--dark_mode_light);
+}
+
+body.dark h4 {
+  color: var(--dark_mode_light) !important;
+}
+
+body.dark #new_songs .currency .currency_button{
+  background-color: var(--dark_mode_input);
+}
+
+body.dark .saved_songs_list tr{
+  border-bottom: 1px solid var(--dark_mode_light);
+}
+
+body.dark .saved_songs_list tr td.song_name,
+.saved_songs_list tr td.artist_name a,
+.saved_songs_list tr td.artist_name a:hover {
+  color: var(--dark_mode_light);
+}
+
+body.dark .saved_songs_list tr td.artist_name a {
+  color: var(--dark_mode_light);
+}
+
+body.dark .saved_songs_list tr td.length {
+  color: var(--dark_mode_light);
+}
+
+body.dark #new_songs .currency .currency_button {
+  color: var(--dark_mode_light);
+}
+
+body.dark #new_songs .currency .currency_button:hover,
+body.dark #new_songs .currency .currency_button.current {
+	color: var(--primary-color);
+}
+
+body.dark .genres_overview .genre_box .genre_box_inner a,
+body.dark .genres_overview .genre_box .genre_box_inner a h3 {
+  color: var(--dark_mode_border);
+}
+
+body.dark table.concerts_near_you {
+  color: var(--dark_mode_light);
+}
+
+body.dark div.audio-player {
+  background: var(--dark_mode_input) !important;
+}
+
+body.dark div.audio-player p a {
+  color: var(--dark_mode_light);
+}
+
+body.dark fieldset span.max_song_upload {
+  color: var(--dark_mode_light);
+}
+
+body.dark div.popular_song div.popular_song_inner h4 {
+  color: var(--dark_mode_input) !important;
+}
+
+body.dark .audio-player .player-controls p,
+body.dark .audio-player .player-controls p a,
+body.dark .audio-player .player-controls {
+	color: #fff;
+}
+body.dark .audio-player .player-controls p a:hover {
+	opacity: 0.6;
+}
+
+body.dark .follower_count {
+	color: #fff;
+}

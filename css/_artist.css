@@ -1,0 +1,417 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+
+@import "_config.css";
+
+/* @group artist detail page */
+
+body.artist_detail #navigation {
+	display: none;
+}
+h1.artist_detail_title {
+	float: left;
+	font-size: 70px;
+	line-height: 78px;
+	margin-bottom: 15px;
+	margin-top: 0;
+}
+.artist_actions {
+	clear: both;
+}
+a.follow_button,
+a.follow_button.is_following:hover {
+	display: inline-block;
+	font-size: 14px;
+	background: var(--button);
+	color: var(--text);
+	text-decoration: none;
+	border-radius: 50px;
+	padding: 8px 12px;
+	text-align: center;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+a.follow_button.error_button {
+	background: var(--error_color);
+	color: #fff;
+}
+a.follow_button.error_button:hover {
+	background: var(--button);
+	color: var(--text);
+}
+a.follow_button:hover,
+a.follow_button.is_following {
+	background: var(--primary-color_light);
+	color: var(--primary-color);
+	cursor: pointer;
+}
+h3.popular_title {
+	margin-bottom: 25px;
+}
+.artist_image {
+	position: absolute;
+	top: 0;
+	left: 290px;
+	z-index: 0;
+	width: calc(100% - 290px);
+	max-height: 520px;
+	overflow: hidden;
+}
+.artist_image img {
+	width: 100%;
+}
+.artist_content {
+	margin-top: 415px;
+}
+#popular_wrapper .left_wrapper {
+	float: left;
+}
+#popular_wrapper .right_wrapper {
+	float: right;
+}
+.popular_song {
+	min-width: 545px;
+	background: var(--button);
+	border-radius: 13px;
+	margin-top: 20px;
+}
+.popular_song:first-child {
+	margin-top: 0;
+}
+.popular_song .popular_song_inner {
+	padding: 8px 25px;
+	box-sizing: border-box;
+}
+.popular_song .popular_song_inner .play_song_wrapper,
+.popular_song .popular_song_inner .like_song,
+.popular_song .popular_song_inner .more_song,
+.popular_song .popular_song_inner .song_options .time {
+	position: relative;
+	float: left;
+	top: 17px;
+}
+.popular_song .popular_song_inner .more_song {
+	top: 21px;
+	margin-left: 20px;
+}
+.popular_song .popular_song_inner .song_options .time {
+	top: 13px;
+}
+.popular_song .popular_song_inner .play_song:hover path,
+.popular_song .popular_song_inner .like_song:hover path,
+.popular_song .popular_song_inner .more_song:hover,
+.popular_song .popular_song_inner .more_song:hover g circle {
+	fill: var(--primary-color);
+	cursor: pointer;
+}
+.popular_song .popular_song_inner .cover_img {
+	float: left;
+	margin-left: 20px;
+}
+.popular_song .popular_song_inner .song_information {
+	float: left;
+	margin-left: 20px;
+}
+.popular_song .popular_song_inner .song_name {
+	font-size: 18px;
+	line-height: 26px;
+	color: var(--text);
+	font-weight: 700;
+	margin: 0;
+}
+.popular_song .popular_song_inner .artist_name {
+	font-size: 14px;
+	color: var(--light_text);
+	margin: 0;
+}
+.popular_song .popular_song_inner .song_options {
+	float: right;
+}
+.popular_song .popular_song_inner .like_song {
+	margin-left: 20px;
+}
+#albums_overview,
+#songs_overview {
+	margin-top: 70px;
+}
+.album_wrapper,
+.songs_wrapper {
+	clear: both;
+}
+#albums_overview .album_item,
+#songs_overview .song_item {
+	float: left;
+	margin-left: 30px;
+	transition: all 0.3s ease;
+	border-radius: 13px;
+	overflow: hidden;
+	width: 175px;
+	height: 175px;
+}
+#albums_overview .album_item:hover,
+#songs_overview .song_item:hover {
+	box-shadow: var(--standard_shadow);
+	transform: scale(1.05);
+	transition: all 0.3s ease;
+}
+#albums_overview .album_item img,
+#songs_overview .song_item img {
+	width: 100%;
+}
+#albums_overview .album_item:first-child,
+#songs_overview .song_item:first-child {
+	margin-left: 0;
+}
+#albums_overview h3.short_title,
+#songs_overview h3.short_title {
+	float: left;
+}
+#albums_overview .show_all,
+#songs_overview .show_all {
+	float: right;
+	font-size: 14px;
+	line-height: 18px;
+	color: var(--navigation_left);
+	margin: 0;
+	margin-top: 10px;
+}
+
+.more_songs {
+	display: none;
+	float: left;
+	clear: both;
+	margin-top: 30px;
+}
+
+.followers {
+	float: left;
+	position: relative;
+	top: 20px;
+	margin-left: 15px;
+}
+
+.followers svg,
+.followers img {
+	float: left;
+	width: 50px;
+	height: auto;
+}
+
+.followers svg path {
+	fill: var(--primary-color) !important;
+}
+
+.follower_count {
+	font-size: 25px;
+    line-height: 32px;
+    position: relative;
+    top: 8px;
+    font-weight: 700;
+}
+
+/* @end */
+
+
+
+/* @group */
+
+#album_informations {
+	float: left;
+}
+#song_list {
+	overflow: hidden;
+	padding-left: 70px;
+}
+#album_overview #album_informations .album {
+	border-radius: 13px;
+}
+#album_overview #album_informations .album_title {
+	font-size: 28px;
+	line-height: 37px;
+	font-weight: 700;
+	color: var(--text);
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.album_details li {
+	float: left;
+	position: relative;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 700;
+	list-style-type: none;
+	margin-left: 25px;
+	color: var(--light_text);
+}
+.album_details li:before {
+	position: absolute;
+	content: '';
+	background: var(--light_text);
+	width: 9px;
+	height: 9px;
+	border-radius: 50px;
+	top: 8px;
+	left: -17px;
+}
+.album_details li:first-child {
+	margin-left: 0;
+}
+.album_details li:first-child:before {
+	display: none;
+}
+
+/* end */
+
+
+
+/* @group artist overview */
+
+.artists_overview {
+	margin-left: -25px;
+}
+.artists_overview .artist_box {
+	position: relative;
+}
+.artists_overview .artist_box:after {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 25px;
+	content: '';
+	display: block;
+	background: rgba(0,0,0,0.6);
+	width: calc(100% - 25px);
+	height: calc(100% - 5px);
+	border-radius: var(--standard_radius);
+	transition: var(--standard_transition);
+	z-index: 9;
+}
+.artists_overview .artist_box:hover:after {
+	opacity: 1;
+	transition: var(--standard_transition);
+}
+.artists_overview .artist_box:hover .artist_name {
+	opacity: 1;
+	transition: var(--standard_transition);
+}
+.artists_overview .artist_name {
+	position: absolute;
+	opacity: 0;
+	top: 50%;
+	left: calc(50% + 12px);
+	transform: translateX(-50%) translateY(-50%);
+	text-align: center;
+	color: #fff;
+	transition: var(--standard_transition);
+	z-index: 10;
+}
+
+/* @end */
+
+
+/* @group add new album styles */
+
+.add_new_album_form fieldset {
+	max-width: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	border: none;
+	box-shadow: var(--standard_shadow);
+	border-radius: var(--standard_radius);
+	padding: 30px 60px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.add_new_album_form fieldset h2 {
+	margin-top: 0;
+}
+.add_new_album_form fieldset:first-child {
+	margin-top: 0;
+}
+.add_new_album_form fieldset .form_element:last-child {
+	margin-bottom: 0;
+}
+.upload_absolute_wrap {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+}
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.btn {
+	display: inline-block;
+	font-size: 14px;
+	background: var(--primary-color);
+	color: #fff;
+	text-decoration: none;
+	border-radius: 50px;
+	padding: 8px 12px;
+	text-align: center;
+	box-sizing: border-box;
+	border: none;
+}
+.btn.with_icon {
+	width: 40px;
+	height: 40px;
+	padding: 7px;
+}
+.with_icon svg path {
+	fill: #fff;
+}
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.upload-btn-wrapper input[type=file],
+.upload-btn-wrapper input[type=file]:hover ~ .btn {
+	cursor: pointer;
+}
+
+/* @end */
+
+
+/* @group manage events */
+
+.event_element {
+	position: relative;
+	margin-top: 20px;
+}
+.event_element:first-child {
+	margin-top: 0;
+}
+input.triplet {
+	float: left;
+	width: 30%;
+	margin-left: 20px;
+}
+input.triplet:first-child {
+	margin-left: 0;
+}
+.new_event_form {
+	position: relative;
+}
+.event_element .follow_button,
+.new_event_form .submit-button {
+	position: absolute;
+	right: -50px;
+	top: 10px;
+}
+.event_element .follow_button.error_button {
+	right: -140px;
+}
+.add_event_wrap {
+	margin-top: 80px;
+}
+
+/* @end */
