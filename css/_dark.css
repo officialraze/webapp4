@@ -115,3 +115,7 @@ body.dark .audio-player .player-controls p a:hover {
 body.dark .follower_count {
 	color: #fff;
 }
+
+body.dark #js-cookie-box.cookie-box {
+	color: var(--dark_mode_input) !important;
+}
