@@ -41,6 +41,7 @@ $playlist_query = "SELECT * FROM `playlist` WHERE `user_id` = ".$_SESSION['user'
 				<li class="navigation_element <?php if($active_class === 'my_songs') { echo 'active'; } ?>"><a href="my_songs.php"><img class="svg" src="img/assets/my_songs.svg" alt="<?php echo MY_SONGS; ?>"><?php echo MY_SONGS; ?></a></li>
 				<li class="navigation_element <?php if($active_class === 'artists') { echo 'active'; } ?>"><a href="artists.php"><img class="svg" src="img/assets/artists.svg" alt="<?php echo ARTISTS; ?>"><?php echo ARTISTS; ?></a></li>
 				<li class="navigation_element <?php if($active_class === 'events') { echo 'active'; } ?>"><a href="events.php"><img class="svg" src="img/assets/events.svg" alt="<?php echo EVENTS; ?>"><?php echo EVENTS; ?></a></li>
+				<li class="navigation_element <?php if($active_class === 'friends') { echo 'active'; } ?>"><a href="friends.php"><img class="svg" src="img/assets/friends.svg" alt="<?php echo FRIENDS; ?>"><?php echo FRIENDS; ?></a></li>
 				<li class="navigation_element <?php if($active_class === 'settings') { echo 'active'; } ?>"><a href="settings.php"><img class="svg" src="img/assets/settings_nav.svg" alt="<?php echo SETTINGS; ?>"><?php echo SETTINGS; ?></a></li>
 			</ul>
 		</div>
