@@ -25,12 +25,12 @@ $playlist_query = "SELECT * FROM `playlist` WHERE `user_id` = ".$_SESSION['user'
 			<?php } ?>
 			<h3 class="profile_name">
 				<?php foreach ($pdo->query($query) as $user_data) {
-					echo $user_data['firstname'].' '.$user_data['lastname'];
+					echo htmlspecialchars($user_data['firstname']).' '.htmlspecialchars($user_data['lastname']);
 				} ?>
 			</h3>
 			<p class="profile_mail">
 				<?php foreach ($pdo->query($query) as $user_data) {
-					echo $user_data['email'];
+					echo htmlspecialchars($user_data['email']);
 				} ?>
 			</p>
 		</div>

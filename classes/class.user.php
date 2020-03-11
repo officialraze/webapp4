@@ -122,12 +122,12 @@ function register_save() {
 
 	// check if username exists
 	$statement_username = $pdo->prepare("SELECT `username` FROM `users` WHERE `username` = :name");
-	$statement_username->bindParam(':name', $post['username']);
+	$statement_username->bindParam(':name', htmlspecialchars($post['username']));
 	$statement_username->execute();
 
 	// check if mail exists
 	$statement_username = $pdo->prepare("SELECT `email` FROM `users` WHERE `username` = :email");
-	$statement_username->bindParam(':email', $post['mail']);
+	$statement_username->bindParam(':email', htmlspecialchars($post['mail']));
 	$statement_username->execute();
 
 	// if everything is ok -> insert into db
@@ -137,10 +137,10 @@ function register_save() {
 	else {
 
 		// prepare data
-		$username = $post['username'];
-		$firstname = $post['firstname'];
-		$lastname = $post['lastname'];
-		$mail = $post['mail'];
+		$username = htmlspecialchars($post['username']);
+		$firstname = htmlspecialchars($post['firstname']);
+		$lastname = htmlspecialchars($post['lastname']);
+		$mail = htmlspecialchars($post['mail']);
 		$password_hash = password_hash($post['password'], PASSWORD_DEFAULT);
 		$password_token = md5(uniqid(rand(), true));
 
@@ -160,7 +160,7 @@ function register_save() {
 
 			// get artist firstname
 			if (!empty($post['artist_firstname']) && isset($post['artist_firstname'])) {
-				$artist_firstname = $post['artist_firstname'];
+				$artist_firstname = htmlspecialchars($post['artist_firstname']);
 			}
 			else {
 				header("Location: ../register.php?message=register_not_successfull");
@@ -169,13 +169,13 @@ function register_save() {
 			// get artist lastname
 			$artist_lastname = '';
 			if (!empty($post['artist_lastname']) && isset($post['artist_lastname'])) {
-				$artist_lastname = $post['artist_lastname'];
+				$artist_lastname = htmlspecialchars($post['artist_lastname']);
 			}
 
 			// get artist biography
 			$biography = '';
 			if (!empty($post['biography']) && isset($post['biography'])) {
-				$biography = $post['biography'];
+				$biography = htmlspecialchars($post['biography']);
 			}
 
 			// get last id (user_id)

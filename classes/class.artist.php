@@ -75,14 +75,14 @@ function save_new_album() {
 
 	// check form data
 	if (isset($post['album_name']) && !empty($post['album_name'])) {
-		$album_name = $post['album_name'];
+		$album_name = htmlspecialchars($post['album_name']);
 	}
 	else {
 		$error['missing_fields'][] = 'album_name';
 	}
 
 	if (isset($post['album_year']) && !empty($post['album_year'])) {
-		$album_year = $post['album_year'];
+		$album_year = htmlspecialchars($post['album_year']);
 	}
 	else {
 		$error['missing_fields'][] = 'album_year';
@@ -143,7 +143,7 @@ function save_new_album() {
 				if ($old_path_music) {
 					$error['upload_song'] = '';
 
-					$song_data = array($artist, ''.$post['song_title'][$song].'', $last_id, ''.$duration.'', $post['genre_selection'][$song]);
+					$song_data = array($artist, ''.htmlspecialchars($post['song_title'][$song]).'', $last_id, ''.$duration.'', $post['genre_selection'][$song]);
 					$statement_music = $pdo->prepare("INSERT INTO `song` (artist_id_link, song_name, album_id_link, length, genre_id) VALUES (?, ?, ?, ?, ?)");
 					$statement_music->execute($song_data);
 
@@ -249,8 +249,9 @@ function save_song_changes($song_name, $genre_id, $song_id) {
 	include '../config.php';
 	include '../includes/db.php';
 
+	// save changes
 	$statement = $pdo->prepare("UPDATE `song` SET song_name = :song_name, genre_id = :genre_id WHERE song_id = :song_id");
-	$statement->execute(array('song_id' => $song_id, 'song_name' => $song_name, 'genre_id' => $genre_id));
+	$statement->execute(array('song_id' => $song_id, 'song_name' => htmlspecialchars($song_name), 'genre_id' => $genre_id));
 
 }
 
@@ -268,8 +269,9 @@ function save_album_changes($album_name, $album_year, $album_id) {
 	include '../config.php';
 	include '../includes/db.php';
 
+	// save changes
 	$statement = $pdo->prepare("UPDATE `album` SET album_name = :album_name, album_year = :album_year WHERE album_id = :album_id");
-	$statement->execute(array('album_id' => $album_id, 'album_name' => $album_name, 'album_year' => $album_year));
+	$statement->execute(array('album_id' => $album_id, 'album_name' => htmlspecialchars($album_name), 'album_year' => $album_year));
 
 }
 
@@ -289,8 +291,9 @@ function save_event_changes($event_name, $place, $event_date, $event_id) {
 	include '../config.php';
 	include '../includes/db.php';
 
+	// save changes
 	$statement = $pdo->prepare("UPDATE `events` SET event_name = :event_name, place = :place, event_date = :event_date WHERE id = :id");
-	$statement->execute(array('id' => $event_id, 'event_name' => $event_name, 'place' => $place, 'event_date' => $event_date));
+	$statement->execute(array('id' => $event_id, 'event_name' => htmlspecialchars($event_name), 'place' => htmlspecialchars($place), 'event_date' => $event_date));
 
 }
 
@@ -313,7 +316,7 @@ function add_event($new_event_name, $new_place, $new_event_date) {
 
 	// add new event
 	$statement = $pdo->prepare("INSERT INTO `events` (artist_id_link, event_name, place, event_date) VALUES (?, ?, ?, ?)");
-	$statement->execute(array($artist, $new_event_name, $new_place, $new_event_date));
+	$statement->execute(array($artist, htmlspecialchars($new_event_name), htmlspecialchars($new_place), $new_event_date));
 
 	// redirect to events management
 	header('Location: ../manage_events.php?artist_id='.$artist.'&message=true');
