@@ -47,8 +47,8 @@
 
 }
 .form_element {
-    position: relative;
-	margin-bottom: 25px;
+  position: relative;
+  margin-bottom: 25px;
 }
 input[type="text"],
 input[type="password"],
@@ -105,7 +105,7 @@ input.submit-button {
 }
 
 .button_wrap.login {
-	max-width: 192px;
+	max-width: 198px;
 }
 .button_wrap.password_reset {
 	max-width: 302px;
