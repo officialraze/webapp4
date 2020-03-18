@@ -64,7 +64,7 @@ else {
 					<h4><?php echo SONGS; ?></h4>
 					<?php foreach ($pdo->query($edit_songs_query) as $songs_to_edit) { ?>
 						<div class="song_element event_element">
-							<input class="song_name triplet" type="text" value="<?php echo htmlspecialchars_decode($songs_to_edit['song_name']); ?>" name="song_name">
+							<input class="song_name triplet" type="text" value="<?php echo htmlspecialchars($songs_to_edit['song_name']); ?>" name="song_name">
 							<select class="genre_selection_field" name="genre_selection">
 								<option value="0" selected><?php echo PLEASE_CHOOSE; ?></option>
 								<?php foreach ($config['genres'] as $genre_id => $genre) { ?>
@@ -83,8 +83,8 @@ else {
 					<h4><?php echo ALBUM; ?></h4>
 					<?php foreach ($pdo->query($edit_albums_query) as $albums_to_edit) { ?>
 						<div class="song_element event_element">
-							<input class="album_name triplet" type="text" value="<?php echo htmlspecialchars_decode($albums_to_edit['album_name']); ?>" name="album_name">
-							<input class="album_year triplet" type="number" value="<?php echo htmlspecialchars_decode($albums_to_edit['album_year']); ?>" name="album_year">
+							<input class="album_name triplet" type="text" value="<?php echo htmlspecialchars($albums_to_edit['album_name']); ?>" name="album_name">
+							<input class="album_year triplet" type="number" value="<?php echo htmlspecialchars($albums_to_edit['album_year']); ?>" name="album_year">
 							<input class="album_id" type="hidden" value="<?php echo $albums_to_edit['album_id']; ?>" name="hidden_album_id">
 							<a class="follow_button save_album"><?php echo SAVE; ?></a>
 							<a class="follow_button delete_album error_button"><?php echo DELETE; ?></a>

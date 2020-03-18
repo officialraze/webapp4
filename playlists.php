@@ -41,7 +41,7 @@ $playlists_overview = "SELECT * FROM `playlist`";
 						<?php foreach ($pdo->query($playlists_overview) as $playlist) { ?>
 							<div class="genre_box">
 								<div class="genre_box_inner">
-									<a href="playlist_detail.php?playlist_id=<?php echo $playlist['playlist_id']; ?>"><h3><?php echo $playlist['playlist_name']; ?></h3></a>
+									<a href="playlist_detail.php?playlist_id=<?php echo $playlist['playlist_id']; ?>"><h3><?php echo htmlspecialchars($playlist['playlist_name']); ?></h3></a>
 								</div>
 							</div>
 						<?php } ?>

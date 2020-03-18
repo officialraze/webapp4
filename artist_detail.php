@@ -128,7 +128,7 @@ $limit_songs = 0;
 						<h1 class="artist_detail_title">
 							<?php
 							 	foreach ($pdo->query($artist_query) as $artist_data) {
-							 		echo $artist_data['artist_firstname'].' '.$artist_data['artist_lastname'];
+							 		echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']);
 							 	}
 							?>
 						</h1>
@@ -190,8 +190,8 @@ $limit_songs = 0;
 												 </span>
 												<img src="img/covers/<?php echo $song_data['path_to_image']?>" class="cover_img" alt="Cover" width="49px">
 												<div class="song_information">
-													<h4 class="song_name"><?php echo $song_data['song_name'];?></h4>
-													<h4 class="artist_name"><?php echo $artist_data['artist_firstname'].' '.$artist_data['artist_lastname']; ?></h4>
+													<h4 class="song_name"><?php echo htmlspecialchars($song_data['song_name']);?></h4>
+													<h4 class="artist_name"><?php echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']); ?></h4>
 												</div>
 												<div class="song_options">
 													<span class="time"><?php echo $song_data['length']; ?></span>
@@ -213,13 +213,13 @@ $limit_songs = 0;
 									foreach (array_slice($data, 3) as $song_data) { ?>
 										<div class="popular_song">
 											<div class="popular_song_inner">
-												<span class="play_song_wrapper play_song_class" data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo $song_data['song_name'];?>" data-artist_name="<?php echo $artist_data['artist_firstname'].' '.$artist_data['artist_lastname']; ?>">
+												<span class="play_song_wrapper play_song_class" data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo htmlspecialchars($song_data['song_name']);?>" data-artist_name="<?php echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']); ?>">
 													 <img src="img/assets/play.svg" alt="Play" class="svg play_song">
 												 </span>
 												<img src="img/covers/<?php echo $song_data['path_to_image']; ?>" class="cover_img" alt="Cover" width="49px">
 												<div class="song_information">
-													<h4 class="song_name"><?php echo $song_data['song_name'];?></h4>
-													<h4 class="artist_name"><?php echo $artist_data['artist_firstname'].' '.$artist_data['artist_lastname']; ?></h4>
+													<h4 class="song_name"><?php echo htmlspecialchars($song_data['song_name']);?></h4>
+													<h4 class="artist_name"><?php echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']); ?></h4>
 												</div>
 												<div class="song_options">
 													<span class="time"><?php echo $song_data['length']; ?></span>

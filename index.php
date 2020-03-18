@@ -55,7 +55,7 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 						<div class="artists_u_like_elements">
 							<?php foreach ($pdo->query($artist_query) as $artist) { ?>
 								<div class="artist_box">
-									<a href="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>"><img src="img/artists/artist_<?php echo $artist['artist_id']; ?>.jpg" alt="<?php echo $artist['artist_firstname'].' '.$artist['artist_lastname']; ?>"></a>
+									<a href="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>"><img src="img/artists/artist_<?php echo $artist['artist_id']; ?>.jpg" alt="<?php echo htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname']); ?>"></a>
 								</div>
 							<?php } ?>
 							<div class="cf"></div>
@@ -84,13 +84,13 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 									?>
 									<div class="popular_song">
 										<div class="popular_song_inner">
-											<span class="play_song_wrapper play_song_class" data-cover=<?php echo $song_data['path_to_image']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo $song_data['song_name'];?>" data-artist_name="<?php echo $song_data['artist_firstname'].' '.$song_data['artist_lastname']; ?>">
+											<span class="play_song_wrapper play_song_class" data-cover=<?php echo $song_data['path_to_image']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo htmlspecialchars($song_data['song_name']);?>" data-artist_name="<?php echo htmlspecialchars($song_data['artist_firstname']).' '.htmlspecialchars($song_data['artist_lastname']); ?>">
 												 <img src="img/assets/play.svg" alt="Play" class="svg play_song">
 											 </span>
 											<img src="img/covers/<?php echo $song_data['path_to_image']?>" class="cover_img" alt="Cover" width="49px">
 											<div class="song_information">
-												<h4 class="song_name"><?php echo $song_data['song_name'];?></h4>
-												<h4 class="artist_name"><?php echo $song_data['artist_firstname'].' '.$song_data['artist_lastname']; ?></h4>
+												<h4 class="song_name"><?php echo htmlspecialchars($song_data['song_name']);?></h4>
+												<h4 class="artist_name"><?php echo htmlspecialchars($song_data['artist_firstname']).' '.htmlspecialchars($song_data['artist_lastname']); ?></h4>
 											</div>
 											<div class="song_options">
 												<span class="time"><?php echo $song_data['length']; ?></span>
@@ -136,7 +136,7 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 																		?>
 																		<div class="playlist_list_box">
 																			<div class="playlist_list_inner">
-																				<a class="add_to_playlist_button <?php echo $playlist_class; ?>" data-playlist_checker=<?php echo $playlist_class; ?> data-song_id=<?php echo $playlist_songs_data['song_id']; ?> data-playlist_id=<?php echo $playlist['playlist_id']; ?> ><?php echo $playlist['playlist_name']; ?></a>
+																				<a class="add_to_playlist_button <?php echo $playlist_class; ?>" data-playlist_checker=<?php echo $playlist_class; ?> data-song_id=<?php echo $playlist_songs_data['song_id']; ?> data-playlist_id=<?php echo $playlist['playlist_id']; ?> ><?php echo htmlspecialchars($playlist['playlist_name']); ?></a>
 																			</div>
 																		</div>
 																	<?php } ?>

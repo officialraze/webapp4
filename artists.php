@@ -49,7 +49,7 @@ $following_artists = "SELECT artists.* FROM `following_artist` following_artist
 								<a href="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>">
 									<div class="artist_box">
 										<img src="img/artists/artist_<?php echo $artist['user_id'];?>.jpg">
-										<h3 class="artist_name"><?php echo $artist['artist_firstname'].' '.$artist['artist_lastname']; ?></h3>
+										<h3 class="artist_name"><?php echo htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname']); ?></h3>
 									</div>
 								</a>
 							<?php }

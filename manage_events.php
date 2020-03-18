@@ -60,10 +60,10 @@ else {
 				<div class="manage_songs_wrap">
 					<?php foreach ($pdo->query($edit_events_query) as $events) { ?>
 						<div class="event_element">
-							<input class="event_name triplet" type="text" value="<?php echo htmlspecialchars_decode($events['event_name']); ?>" name="event_name">
-							<input class="place triplet" type="text" value="<?php echo htmlspecialchars_decode($events['place']); ?>" name="place">
-							<input class="event_date triplet" type="date" value="<?php echo htmlspecialchars_decode($events['event_date']); ?>" name="event_date">
-							<input class="event_id" type="hidden" value="<?php echo htmlspecialchars_decode($events['id']); ?>" name="hidden_event_id">
+							<input class="event_name triplet" type="text" value="<?php echo htmlspecialchars($events['event_name']); ?>" name="event_name">
+							<input class="place triplet" type="text" value="<?php echo htmlspecialchars($events['place']); ?>" name="place">
+							<input class="event_date triplet" type="date" value="<?php echo htmlspecialchars($events['event_date']); ?>" name="event_date">
+							<input class="event_id" type="hidden" value="<?php echo htmlspecialchars($events['id']); ?>" name="hidden_event_id">
 							<a class="follow_button save_event"><?php echo SAVE; ?></a>
 							<div class="cf"></div>
 						</div>

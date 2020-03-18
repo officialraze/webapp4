@@ -63,12 +63,12 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 
 								?>
 								<tr>
-									<td class="play"><span class="play_song_wrapper play_song_class" data-cover=<?php echo $playlist_songs_data['path_to_image']; ?> data-artist_id=<?php echo $playlist_songs_data['artist_id_link']; ?> data-album_id=<?php echo $playlist_songs_data['album_id_link']; ?> data-song=<?php echo $playlist_songs_data['song_id']; ?> data-song_name="<?php echo $playlist_songs_data['song_name'];?>" data-artist_name="<?php echo $playlist_songs_data['artist_firstname'].' '.$playlist_songs_data['artist_lastname']; ?>">
+									<td class="play"><span class="play_song_wrapper play_song_class" data-cover=<?php echo $playlist_songs_data['path_to_image']; ?> data-artist_id=<?php echo $playlist_songs_data['artist_id_link']; ?> data-album_id=<?php echo $playlist_songs_data['album_id_link']; ?> data-song=<?php echo $playlist_songs_data['song_id']; ?> data-song_name="<?php echo htmlspecialchars($playlist_songs_data['song_name']);?>" data-artist_name="<?php echo htmlspecialchars($playlist_songs_data['artist_firstname']).' '.htmlspecialchars($playlist_songs_data['artist_lastname']); ?>">
 										 <img src="img/assets/play.svg" alt="Play" class="svg play_song">
 									 </span></td>
-									<td class="song_name"><?php echo $playlist_songs_data['song_name']; ?></td>
+									<td class="song_name"><?php echo htmlspecialchars($playlist_songs_data['song_name']); ?></td>
 									<td class="artist_name"><a href="artist_detail.php?artist_id=<?php echo 1; ?>">
-										<?php echo $playlist_songs_data['artist_firstname'].' '.$playlist_songs_data['artist_lastname']; ?></a></td>
+										<?php echo htmlspecialchars($playlist_songs_data['artist_firstname']).' '.htmlspecialchars($playlist_songs_data['artist_lastname']); ?></a></td>
 									<td class="actions"><span class="like_wrapper like_song like <?php echo $like_class; ?>" data-song=<?php echo $playlist_songs_data['song_id']; ?>>
 										<img src="img/assets/like.svg" alt="Like" class="svg"></span>
 											<!-- more options for interaction with songs -->
@@ -113,7 +113,7 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 																	?>
 																	<div class="playlist_list_box">
 																		<div class="playlist_list_inner">
-																			<a class="add_to_playlist_button <?php echo $playlist_class; ?>" data-playlist_checker=<?php echo $playlist_class; ?> data-song_id=<?php echo $playlist_songs_data['song_id']; ?> data-playlist_id=<?php echo $playlist['playlist_id']; ?> ><?php echo $playlist['playlist_name']; ?></a>
+																			<a class="add_to_playlist_button <?php echo $playlist_class; ?>" data-playlist_checker=<?php echo $playlist_class; ?> data-song_id=<?php echo $playlist_songs_data['song_id']; ?> data-playlist_id=<?php echo $playlist['playlist_id']; ?> ><?php echo htmlspecialchars($playlist['playlist_name']); ?></a>
 																		</div>
 																	</div>
 																<?php } ?>

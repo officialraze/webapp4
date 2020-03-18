@@ -60,7 +60,7 @@ if(isset($_POST['search'])) {
 														 echo "<a href='artist_detail.php?artist_id=".$artist['artist_id']."'>";
 														 echo "<div class='artist_box'>";
 														 echo "<img src='img/artists/artist_".$artist['artist_id'].".jpg'>";
-														 echo "<h3 class='artist_name'>".$artist['artist_firstname'].' '.$artist['artist_lastname']."</h3>";
+														 echo "<h3 class='artist_name'>".htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname'])."</h3>";
 														 echo "</div>";
 														 echo "</a>";
 													 }
@@ -77,11 +77,11 @@ if(isset($_POST['search'])) {
 													 if (is_array($song) && !empty($song)) {
 														 // give out grid item / all artists
 														 echo "<tr>";
-														 echo '<td class="play"><span class="play_song_wrapper play_song_class" data-artist_id='.$song['artist_id_link'].' data-album_id='.$song['album_id_link'].' data-song='.$song['song_id'].' data-song_name="'.$song['song_name'].'" data-artist_name="'.$artist['artist_firstname'].' '.$artist['artist_lastname'].'">
+														 echo '<td class="play"><span class="play_song_wrapper play_song_class" data-artist_id='.$song['artist_id_link'].' data-album_id='.$song['album_id_link'].' data-song='.$song['song_id'].' data-song_name="'.htmlspecialchars($song['song_name']).'" data-artist_name="'.htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname']).'">
 														 <img src="img/assets/play.svg" alt="Play" class="svg play_song">
 														 </span></td>';
-														 echo "<td class='song_name'>".$song['song_name']."<td>";
-														 echo "<td class='artist_name'><a href='artist_detail.php?artist_id= 1;'>".$artist['artist_firstname'].' '.$artist['artist_lastname']."</a></td>";
+														 echo "<td class='song_name'>".htmlspecialchars($song['song_name'])."<td>";
+														 echo "<td class='artist_name'><a href='artist_detail.php?artist_id= 1;'>".htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname'])."</a></td>";
 														 echo "<td class='actions'><img src='img/assets/like.svg' class='svg like' alt='Like'><img src='img/assets/show_more.svg' class='svg more' alt='show_more'></td>";
 														 echo "<td class='length'>".$song['length']."</td>";
 														 echo "</tr>";
