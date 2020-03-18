@@ -87,6 +87,26 @@ $_SESSION['active_meta_nav']	= 'discover';
 					</form>
 				</div>
 
+
+					<!-- form for deleting account -->
+				<div class="delete_account_wrapper">
+					<div id="delete_account_form" style="display:none;">
+						<h2><?php echo DELETE_ACCOUNT; ?></h2>
+
+						<div class="delete_info">
+							<p><?php echo DELETE_INFORMATION; ?></p>
+						</div>
+
+						<form action="classes/class.user.php" method="post">
+							<input type="text" name="password_deletion" placeholder="<?php echo PASSWORD; ?>">
+							<input class="button" type="submit" name="deletion_password_save" value="<?php echo DELETE_ACCOUNT; ?>">
+						</form>
+					</div>
+
+					<!-- open form with fancybox -->
+					<a data-fancybox data-src="#delete_account_form" href="javascript:;" class="button error"><?php echo DELETE_ACCOUNT;?></a>
+				</div>
+
 				<!-- todo in next version -->
 				<!-- <div class="language">
 					<h2 class="settings"><?php echo LANGUAGE; ?></h2>

@@ -1,8 +1,16 @@
 <!-- load all styles -->
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- load jquery & session plugin -->
 <script src="addons/jquery.min.js" charset="utf-8"></script>
 <script src="addons/jquerysession.js" charset="utf-8"></script>
+
+<!-- load script -->
 <script src="js/functions.js" charset="utf-8"></script>
+
+<!-- load fancybox -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" charset="utf-8"></script>
 
 <?php // TODO: ADD THIS PLEASE IN FINAL VERSION FOR SHOWING THE CORRECT FONT --> LOCAL INSTALLED FONT LOADS FASTER :) ?>
 <!-- <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet"> -->
