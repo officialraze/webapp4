@@ -90,6 +90,7 @@ define('SWITCH_DARKMODE', 'Darkmode');
 define('CHANGE_BASICS', 'Benutzerangaben ändern');
 define('CHANGE_IMAGE', 'Profilbild ändern');
 define('DELETE_ACCOUNT', 'Account löschen');
+define('DELETE_INFORMATION', 'Sie sind dabei Ihren Account zu löschen. Bestätigen Sie bitte Ihr momentanes Passwort um den Account definitiv zu löschen.');
 
 // events
 define('NEAR_CONCERTS', 'Konzerte in der Nähe');

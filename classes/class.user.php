@@ -36,7 +36,6 @@ if (isset($post['register_form'])) {
 	}
 }
 
-
 // reset password function
 if (isset($post['password_reset_form'])) {
 	if(!empty($post['username']) && isset($post['username'])) {
@@ -76,6 +75,21 @@ if (isset($post['basic_settings_save'])) {
 if (isset($post['upload_user_image_form'])) {
 	upload_user_image();
 }
+
+// check if account should be deleted
+if (isset($post['password_deletion'])) {
+	delete_account($post['password_deletion'], $post['delete_user_id']);
+}
+
+
+
+/*
+ *
+ * USER FUNCTIONS
+ * functions for executing the stuff
+ * 
+*/
+
 
 
 /**
@@ -412,5 +426,40 @@ function upload_user_image() {
 		}
 	}
 }
+
+
+
+/**
+ * delete account, but first check password
+ *
+ * @param string
+ * @param string
+*/
+function delete_account($password, $delete_user_id) {
+
+	// includes
+	include '../config.php';
+	include '../includes/db.php';
+
+	// check if user exists
+	$statement = $pdo->prepare("SELECT * FROM `users` WHERE `id` = :delete_user_id");
+	$result = $statement->execute(array('delete_user_id' => $delete_user_id));
+	$user = $statement->fetch();
+
+	// check if passwords match
+	if (password_verify($password, $user['password_hash'])) {
+		$statement = $pdo->prepare("DELETE FROM users WHERE id = :user_id");
+		$statement->execute(array('user_id' => $delete_user_id));
+		session_destroy();
+
+		// redirect to login
+		header("Location: ../login.php?message=account_successfully_deleted");
+	}
+	else {
+		header("Location: ../settings.php?message=password_does_not_match");
+	}
+
+}
+
 
 ?>

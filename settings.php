@@ -99,7 +99,8 @@ $_SESSION['active_meta_nav']	= 'discover';
 
 						<form action="classes/class.user.php" method="post">
 							<input type="text" name="password_deletion" placeholder="<?php echo PASSWORD; ?>">
-							<input class="button" type="submit" name="deletion_password_save" value="<?php echo DELETE_ACCOUNT; ?>">
+							<input type="hidden" name="delete_user_id" value="<?php echo $_SESSION['user']['id'];?>">
+							<a class="follow_button"  href="javascript:;" onclick="parentNode.submit();"><?php echo DELETE_ACCOUNT; ?></a>
 						</form>
 					</div>
 

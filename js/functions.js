@@ -71,6 +71,10 @@ $(function() {
 			var message_value = "true";
 			var message_text = 'Passwort wurde erfolgreich zurückgesetzt!';
 		}
+		else if (window.location.href.indexOf("message=account_successfully_deleted") > -1) {
+			var message_value = "true";
+			var message_text = 'Account wurde erfolgreich gelöscht!';
+		}
 		else if (window.location.href.indexOf("message=cover_not_uploaded") > -1) {
 			var message_value = "false";
 			var message_text = 'Cover konnte nicht geladen werden!';
@@ -82,6 +86,10 @@ $(function() {
 		else if (window.location.href.indexOf("message=login_false") > -1) {
 			var message_value = "false";
 			var message_text = 'E-Mail oder Passwort ist nicht korrekt!';
+		}
+		else if (window.location.href.indexOf("message=password_does_not_match") > -1) {
+			var message_value = "false";
+			var message_text = 'Passwort stimmt nicht überein. Account wurde nicht gelöscht!';
 		}
 		else if (window.location.href.indexOf("message=token_used") > -1) {
 			var message_value = "false";
