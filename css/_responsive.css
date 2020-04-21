@@ -10,6 +10,12 @@
   #search_navigation_wrap {
     display: none;
   }
+  .popular_song {
+    min-width: 300px !important;
+  }
+  .genres_overview .genre_box {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 1300px) {
