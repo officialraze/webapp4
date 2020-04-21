@@ -13,7 +13,7 @@
         </size>
         <zorder>9</zorder>
         <SQLField>
-            <name><![CDATA[friends_id]]></name>
+            <name><![CDATA[friend_id]]></name>
             <type><![CDATA[INTEGER(11)]]></type>
             <uid><![CDATA[4849EDA7-3429-4572-BDE0-EE208F10B964]]></uid>
         </SQLField>
@@ -514,13 +514,13 @@
         <RightSidebarWidth><![CDATA[1163.000000]]></RightSidebarWidth>
         <sidebarIndex><![CDATA[0]]></sidebarIndex>
         <snapToGrid><![CDATA[0]]></snapToGrid>
-        <SourceSidebarWidth><![CDATA[0.000000]]></SourceSidebarWidth>
+        <SourceSidebarWidth><![CDATA[312.000000]]></SourceSidebarWidth>
         <SQLEditorFileFormatVersion><![CDATA[4]]></SQLEditorFileFormatVersion>
         <uid><![CDATA[C14D4E11-5ED5-49E3-8435-07F077C0021B]]></uid>
         <windowHeight><![CDATA[877.000000]]></windowHeight>
         <windowLocationX><![CDATA[0.000000]]></windowLocationX>
         <windowLocationY><![CDATA[0.000000]]></windowLocationY>
-        <windowScrollOrigin><![CDATA[{0, 88}]]></windowScrollOrigin>
+        <windowScrollOrigin><![CDATA[{10, 6.5}]]></windowScrollOrigin>
         <windowWidth><![CDATA[1440.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>

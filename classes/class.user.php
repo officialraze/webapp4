@@ -81,6 +81,10 @@ if (isset($post['password_deletion'])) {
 	delete_account($post['password_deletion'], $post['delete_user_id']);
 }
 
+if (($_GET['action'] == 'friend_function') && (!empty($_GET['user_id']))) {
+	friend_function($_GET['user_id']);
+}
+
 
 
 /*
@@ -97,6 +101,7 @@ if (isset($post['password_deletion'])) {
  *
  * @param string $username
  * @param string $password
+ * 
 */
 function login_user($username, $password) {
 
@@ -213,8 +218,8 @@ function register_save() {
 /**
  * set setting darkmode // AJAX
  *
- * @param string $username
- * @param string $password
+ * @param int $switch
+ * 
 */
 function switch_darkmode($switch) {
 
@@ -235,6 +240,7 @@ function switch_darkmode($switch) {
  *
  * @param string $save_song
  * @param integer $song_id
+ * 
 */
 function like_song($save_song, $song_id) {
 
@@ -262,6 +268,7 @@ function like_song($save_song, $song_id) {
  *
  * @param string $password
  * @param string $token
+ * 
 */
 function reset_password($password, $token) {
 
@@ -298,6 +305,7 @@ function reset_password($password, $token) {
  * send mail with password reset link
  *
  * @param string $username
+ * 
 */
 function send_password_reset_link($username) {
 
@@ -336,9 +344,6 @@ function send_password_reset_link($username) {
 
 /**
  * save user settings
- *
- * @param string $username
- * @param string $password
 */
 function save_user_settings() {
 
@@ -404,9 +409,6 @@ function save_user_settings() {
 
 /**
  * Upload user image
- *
- * @param string
- * @param string
 */
 function upload_user_image() {
 
@@ -448,8 +450,8 @@ function upload_user_image() {
 /**
  * delete account, but first check password
  *
- * @param string
- * @param string
+ * @param string $password
+ * @param int $delete_user_id
 */
 function delete_account($password, $delete_user_id) {
 
@@ -473,6 +475,40 @@ function delete_account($password, $delete_user_id) {
 	}
 	else {
 		header("Location: ../settings.php?message=password_does_not_match");
+	}
+
+}
+
+
+
+/**
+ * add or remove friend
+ *
+ * @param int $user_id
+ * 
+*/
+function friend_function($user_id) {
+
+	// includes
+	include '../config.php';
+	include '../includes/db.php';
+
+	// check if user is already a friend -> if yes, then remove
+	$query_all_users = "SELECT * FROM `friends` WHERE friends_id = ".$user_id." AND user_id = ".$_SESSION['user']['id'];
+	$get_user_friends = $pdo->prepare($query_all_users);
+	$get_user_friends->execute();
+	$result = $get_user_friends->fetch(PDO::FETCH_ASSOC);
+
+	// check result
+	if ($result == FALSE) {
+		$statement = $pdo->prepare("INSERT INTO friends (friends_id, user_id) VALUES (?, ?)");
+		$statement->execute(array($user_id, $_SESSION['user']['id']));
+		header("Location: ../all_users.php?message=friend_successfully_added");
+	}
+	else {
+		$statement = $pdo->prepare("DELETE FROM friends WHERE friends_id = :friend_id AND user_id = :user_id");
+		$statement->execute(array('friend_id' => $user_id, 'user_id' => $_SESSION['user']['id']));
+		header("Location: ../all_users.php?message=friend_successfully_removed");
 	}
 
 }

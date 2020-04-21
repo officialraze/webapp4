@@ -23,6 +23,7 @@ if(isset($_SESSION['active_meta_nav'])) {
 		<ul>
 			<li class="main_navigation_element <?php if($active_class_meta === 'discover') { echo 'active'; } ?>"><a href="index.php"><?php echo HOME; ?></a></li>
 			<li class="main_navigation_element <?php if($active_class_meta === 'all_artists') { echo 'active'; } ?>"><a href="all_artists.php"><?php echo ALL_ARTISTS; ?></a></li>
+			<li class="main_navigation_element <?php if($active_class_meta === 'all_users') { echo 'active'; } ?>"><a href="all_users.php"><?php echo ALL_USERS; ?></a></li>
 			<li class="main_navigation_element <?php if($active_class_meta === 'genres') { echo 'active'; } ?>"><a href="genres.php"><?php echo GENRES; ?></a></li>
 			<li class="main_navigation_element <?php if($active_class_meta === 'playlists') { echo 'active'; } ?>"><a href="playlists.php"><?php echo PLAYLISTS; ?></a></li>
 		</ul>
