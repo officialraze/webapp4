@@ -20,6 +20,7 @@ define('HOME', 'Home');
 define('GENRES', 'Genres');
 define('PLAYLISTS', 'Playlists');
 define('ALL_ARTISTS', 'Alle Künstler');
+define('ALL_USERS', 'Alle Benutzer');
 
 // content home
 define('RECENTLY_LISTENED', 'Zuletzt gehört');
@@ -105,3 +106,7 @@ define('MORE_THAN_3', 'Mehr als 3 Zeichen eingeben');
 
 // playlist
 define('ENTER_NAME', 'Bitte Namen eingeben');
+
+// friends
+define('MY_FRIENDS', 'Meine Freunde');
+

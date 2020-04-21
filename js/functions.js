@@ -75,6 +75,14 @@ $(function() {
 			var message_value = "true";
 			var message_text = 'Account wurde erfolgreich gelöscht!';
 		}
+		else if (window.location.href.indexOf("message=friend_successfully_added") > -1) {
+			var message_value = "true";
+			var message_text = 'Erfolgreich als Freund hinzugefügt!';
+		}
+		else if (window.location.href.indexOf("message=friend_successfully_removed") > -1) {
+			var message_value = "false";
+			var message_text = 'Freund wurde entfernt!';
+		}
 		else if (window.location.href.indexOf("message=cover_not_uploaded") > -1) {
 			var message_value = "false";
 			var message_text = 'Cover konnte nicht geladen werden!';
