@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 21. Apr 2020 um 17:27
+-- Erstellungszeit: 21. Apr 2020 um 18:47
 -- Server-Version: 5.7.26
 -- PHP-Version: 7.3.8
 
@@ -99,6 +99,24 @@ CREATE TABLE IF NOT EXISTS `following_artist` (
 
 INSERT INTO `following_artist` (`user_id_link`, `artist_id`) VALUES
 (1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `friends`
+--
+
+CREATE TABLE IF NOT EXISTS `friends` (
+  `friends_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `friends`
+--
+
+INSERT INTO `friends` (`friends_id`, `user_id`) VALUES
+(2, 1);
 
 -- --------------------------------------------------------
 
