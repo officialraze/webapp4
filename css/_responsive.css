@@ -1,0 +1,42 @@
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber & David Clausen
+// --------------------------
+*/
+
+@media screen and (max-width: 1000px) {
+  .navigation_left,
+  #search_navigation_wrap {
+    display: none;
+  }
+  .popular_song {
+    min-width: 300px !important;
+  }
+  .genres_overview .genre_box {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .search {
+    width: 250px;
+  }
+  #navigation ul li.main_navigation_element {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+  #navigation {
+    margin-right: 40px;
+  }
+  #new_songs {
+    float: left;
+    clear: both;
+    margin-left: 0px;
+    width: 95%;
+  }
+  #artists_u_like .artists_u_like_elements .artist_box {
+    height: 150px;
+    width: 150px;
+  }
+}
