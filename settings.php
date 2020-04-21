@@ -83,6 +83,27 @@ $_SESSION['active_meta_nav']	= 'discover';
 							</div>
 						</div>
 
+						<?php
+						
+							// prepare data
+							$insta = $_SESSION['user']['insta'];
+							$facebook = $_SESSION['user']['facebook'];
+
+							// if artist -> social media
+							if ($_SESSION['user']['is_artist'] == TRUE) { ?>
+								<div class="insta">
+									<div class="settings_insta_profile">
+										<input type="text" name="change_insta" value="<?php echo (!empty($insta) ? $insta : ''); ?>" placeholder="Instagram">
+									</div>
+								</div>
+
+								<div class="facebook">
+									<div class="settings_facebook_profile">
+										<input type="text" name="change_facebook" value="<?php echo (!empty($facebook) ? $facebook : ''); ?>" placeholder="Facebook">
+									</div>
+								</div>
+						<?php } ?>
+
 						<input class="button" type="submit" name="basic_settings_save" value="Speichern">
 					</form>
 				</div>

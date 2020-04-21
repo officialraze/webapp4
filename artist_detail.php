@@ -134,8 +134,20 @@ $limit_songs = 0;
 						</h1>
 
 						<div class="followers">
+							<!-- insta -->
+							<?php if (!empty($artist_data['insta'])) { ?>
+								<a target="_blank" href="<?php echo $artist_data['insta']; ?>"><img class="svg follower_icon" src="img/assets/insta.svg" alt="Instagram"></a>
+							<?php } ?>
+
+							<!-- facebook -->
+							<?php if (!empty($artist_data['facebook'])) { ?>
+								<a target="_blank" href="<?php echo $artist_data['facebook']; ?>"><img class="svg follower_icon" src="img/assets/facebook.svg" alt="Facebook"></a>
+							<?php } ?>
+
 							<img class="svg follower_icon" src="img/assets/follower.svg" alt="Followers">
 							<span class="follower_count"><?php echo $followers; ?></span>
+
+							
 						</div>
 
 						<div class="artist_actions">

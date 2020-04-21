@@ -45,7 +45,7 @@
         </location>
         <size>
             <width>215.00</width>
-            <height>180.00</height>
+            <height>220.00</height>
         </size>
         <zorder>0</zorder>
         <SQLField>
@@ -91,6 +91,16 @@
             <name><![CDATA[is_artist]]></name>
             <type><![CDATA[INTEGER(1)]]></type>
             <uid><![CDATA[B9AC58DB-1E80-41B7-99AE-DAF2ACE2B7FA]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[insta]]></name>
+            <type><![CDATA[TEXT]]></type>
+            <uid><![CDATA[239B6382-CDFD-41CD-A5FB-AB4EEDBC2F3A]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[facebook]]></name>
+            <type><![CDATA[TEXT]]></type>
+            <uid><![CDATA[03BAA495-C206-45A5-8577-6D0A093794C4]]></uid>
         </SQLField>
         <labelWindowIndex><![CDATA[9]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
@@ -199,7 +209,7 @@
         </location>
         <size>
             <width>219.00</width>
-            <height>100.00</height>
+            <height>140.00</height>
         </size>
         <zorder>6</zorder>
         <SQLField>
@@ -233,6 +243,16 @@
             <name><![CDATA[artist_lastname]]></name>
             <type><![CDATA[VARCHAR(255)]]></type>
             <uid><![CDATA[60C06182-6BCF-4BEF-AE33-25257D11F649]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[insta]]></name>
+            <type><![CDATA[TEXT]]></type>
+            <uid><![CDATA[D3C384FF-CE10-4915-BF7A-4483C216991E]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[facebook]]></name>
+            <type><![CDATA[TEXT]]></type>
+            <uid><![CDATA[DB9429B0-7472-4D22-8955-730B61652F44]]></uid>
         </SQLField>
         <labelColor><![CDATA[{0,0.991439,1,1}]]></labelColor>
         <labelWindowIndex><![CDATA[6]]></labelWindowIndex>
@@ -331,7 +351,7 @@
             <uid><![CDATA[524C592C-275F-4CD1-87F1-745A49717754]]></uid>
         </SQLField>
         <labelColor><![CDATA[{0,0.991439,1,1}]]></labelColor>
-        <labelWindowIndex><![CDATA[1]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[2]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[9C8D3164-77FE-48FA-A76C-05EBF98AEAAE]]></uid>
     </SQLTable>
@@ -500,7 +520,7 @@
         <windowHeight><![CDATA[877.000000]]></windowHeight>
         <windowLocationX><![CDATA[0.000000]]></windowLocationX>
         <windowLocationY><![CDATA[0.000000]]></windowLocationY>
-        <windowScrollOrigin><![CDATA[{0, 0}]]></windowScrollOrigin>
+        <windowScrollOrigin><![CDATA[{0, 88}]]></windowScrollOrigin>
         <windowWidth><![CDATA[1440.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>

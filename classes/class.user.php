@@ -349,9 +349,25 @@ function save_user_settings() {
 	include '../config.php';
 	include '../includes/db.php';
 
-	// TODO:
-	// check if username or email already exists
+	// save insta
+	if (!empty($post['change_insta'])) {
+		$insta = $post['change_insta'];
+		$statement = $pdo->prepare("UPDATE `users` SET `insta` = :insta WHERE id = ".$_SESSION['user']['id']);
+		$statement2 = $pdo->prepare("UPDATE `artist` SET `insta` = :insta2 WHERE user_id = ".$_SESSION['user']['id']);
+		$statement->execute(array('insta' => $insta));
+		$statement2->execute(array('insta2' => $insta));
+	}
 
+	// save facebook
+	if (!empty($post['change_facebook'])) {
+		$facebook = $post['change_facebook'];
+		$statement = $pdo->prepare("UPDATE `users` SET `facebook` = :facebook WHERE id = ".$_SESSION['user']['id']);
+		$statement2 = $pdo->prepare("UPDATE `artist` SET `facebook` = :facebook2 WHERE user_id = ".$_SESSION['user']['id']);
+		$statement->execute(array('facebook' => $facebook));
+		$statement2->execute(array('facebook2' => $facebook));
+	}
+
+	// check basic information
 	if (isset($post['change_username']) && !empty($post['change_username']) && isset($post['change_username']) && !empty($post['change_mail']) && isset($post['change_pw']) && !empty($post['change_pw'])) {
 
 		// get new username
