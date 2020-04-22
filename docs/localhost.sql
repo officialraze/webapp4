@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 21. Apr 2020 um 18:47
+-- Erstellungszeit: 22. Apr 2020 um 08:19
 -- Server-Version: 5.7.26
 -- PHP-Version: 7.3.8
 
@@ -30,7 +30,14 @@ CREATE TABLE IF NOT EXISTS `album` (
   `artist_id` int(11) NOT NULL,
   `path_to_image` varchar(255) NOT NULL,
   PRIMARY KEY (`album_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `album`
+--
+
+INSERT INTO `album` (`album_id`, `album_name`, `album_year`, `artist_id`, `path_to_image`) VALUES
+(1, 'Purple Lambo Rmx', 2020, 1, 'd6ea587bd85be9fc3860564762788054.jpg');
 
 -- --------------------------------------------------------
 
@@ -180,11 +187,19 @@ CREATE TABLE IF NOT EXISTS `song` (
   `album_id_link` int(11) NOT NULL,
   `length` varchar(255) NOT NULL,
   `genre_id` int(11) NOT NULL,
+  `plays` int(100) DEFAULT '0',
   PRIMARY KEY (`song_id`),
   KEY `song_fk0` (`artist_id_link`),
   KEY `song_fk2` (`genre_id`),
   KEY `song_fk1` (`album_id_link`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `song`
+--
+
+INSERT INTO `song` (`song_id`, `artist_id_link`, `song_name`, `album_id_link`, `length`, `genre_id`, `plays`) VALUES
+(1, 1, 'Purple Lambo (molvin rmx)', 1, '00:26', 3, 5);
 
 -- --------------------------------------------------------
 

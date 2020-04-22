@@ -281,6 +281,19 @@ $(function() {
 		$.session.set('album_id', album_id);
 		$.session.set('cover', cover);
 
+		// add 1 play
+		$.ajax({
+			url: 'classes/class.artist.php',
+			type: "POST",
+			data: {
+				song_id: song_id,
+				action: 'add_play',
+			},
+			success: function(response) {
+				console.log(response);
+			}
+		});
+
 		// load playbar again for setting new song data
 		$('#playbar_wrapper_loader').load('includes/playbar.php');
 		setTimeout(function(){

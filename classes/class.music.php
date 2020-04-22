@@ -1,4 +1,12 @@
 <?php
+/*
+// --------------------------
+// Webprojekt 3.0
+// Copyright Melvin Lauber
+// --------------------------
+*/
+
+
 class MP3File {
     protected $filename;
     public function __construct($filename) {

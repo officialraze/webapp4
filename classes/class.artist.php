@@ -55,6 +55,11 @@ if (isset($post['delete_from_val']) && isset($post['delete_id_val'])) {
 	delete_from($post['delete_from_val'], $post['delete_id_val']);
 }
 
+// check if follow / unfollow artist
+if (isset($post['action']) && ($post['action'] == 'add_play') && isset($post['song_id'])) {
+	add_play_to_song($post['song_id']);
+}
+
 /**
  * Save new album into db
  *
@@ -349,6 +354,31 @@ function delete_from($delete_from_table, $delete_id) {
 		$query->bindValue(':album_id', $delete_id);
 		$query->execute();
 	}
+
+}
+
+
+
+/**
+ * add 1 play to current playing song
+ *
+ * @param integer $song_id
+*/
+function add_play_to_song($song_id) {
+
+	// includes
+	include '../config.php';
+	include '../includes/db.php';
+
+	// add 1 play to song
+	if (!empty($song_id) && $song_id > 0) {
+		$query = $pdo->prepare("UPDATE song SET plays = plays + 1 WHERE song_id = '".$song_id."'");
+		$query->execute();
+
+		return TRUE;
+	}
+
+	return FALSE;
 
 }
 
