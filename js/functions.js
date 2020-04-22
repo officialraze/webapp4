@@ -1,6 +1,6 @@
 /*
 // --------------------------
-// Webprojekt 3.0
+// Webprojekt 4.0
 // Copyright Melvin Lauber & David Clausen
 // --------------------------
 */
@@ -10,6 +10,12 @@ $(function() {
 
 	// load playbar
 	$('#playbar_wrapper_loader').load('includes/playbar.php');
+
+	// change current navigation
+	$('.site_load_button').click(function () {
+		$('.main_navigation_element').removeClass('active');
+		$(this).parent().addClass('active');
+	});
 
 	// show all songs in artist detail
 	$('.show_all').click(function() {

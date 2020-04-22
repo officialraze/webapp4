@@ -1,7 +1,7 @@
 <?php
 /*
 // --------------------------
-// Webprojekt 3.0
+// Webprojekt 4.0
 // Copyright Melvin Lauber
 // --------------------------
 */
