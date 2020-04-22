@@ -231,7 +231,7 @@ $limit_songs = 0;
 												<img src="img/covers/<?php echo $song_data['path_to_image']; ?>" class="cover_img" alt="Cover" width="49px">
 												<div class="song_information">
 													<h4 class="song_name"><?php echo htmlspecialchars($song_data['song_name']);?></h4>
-													<h4 class="artist_name"><?php echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']); ?></h4>
+													<h4 class="artist_name"><?php echo htmlspecialchars($artist_data['artist_firstname']).' '.htmlspecialchars($artist_data['artist_lastname']); ?><span class="play_counter"> • <?php echo $song_data['plays'].' Plays'; ?></span></h4>
 												</div>
 												<div class="song_options">
 													<span class="play_counter"><?php echo $song_data['plays']; ?></span>
