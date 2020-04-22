@@ -93,31 +93,9 @@ function save_new_album() {
 		$error['missing_fields'][] = 'album_year';
 	}
 
-
-	// upload cover
-	$allow_image = array("jpg", "jpeg", "png");
-	if ($_FILES['artwork']['tmp_name']) {
-
-		// prepare data
-		$info = explode('.', strtolower($_FILES['artwork']['name']));
-		$old_path = $_FILES['artwork']['tmp_name'];
-		$new_path = '../img/covers/'.$_FILES['artwork']['name'];
-
-		if (in_array(end($info), $allow_image)) {
-			if (move_uploaded_file($old_path, $new_path)) {
-				$error['upload_artwork'] = '';
-				$path_to_image = $_FILES['artwork']['name'];
-			}
-		}
-		else {
-			$error['upload_artwork'] = TRUE;
-			header("Location: ../add_new_album.php?artist_id='.$artist.'&message=cover_not_uploaded");
-		}
-	}
-
 	// album data
-	if (!empty($album_name) && !empty($album_year) && !empty($artist) && $artist != 0 && !empty($path_to_image)) {
-		$data_album = array($album_name, $album_year, $artist, $path_to_image);
+	if (!empty($album_name) && !empty($album_year) && !empty($artist) && $artist != 0) {
+		$data_album = array($album_name, $album_year, $artist, '');
 
 		// insert data into db
 		$statement = $pdo->prepare("INSERT INTO `album` (album_name, album_year, artist_id, path_to_image) VALUES (?, ?, ?, ?)");
@@ -130,6 +108,30 @@ function save_new_album() {
 	// get last id
 	$stmt = $pdo->query("SELECT LAST_INSERT_ID()");
 	$last_id = $stmt->fetchColumn();
+
+	// upload cover
+	$allow_image = array("jpg", "jpeg", "png");
+	if ($_FILES['artwork']['tmp_name']) {
+
+		// prepare data
+		$info = explode('.', strtolower($_FILES['artwork']['name']));
+		$old_path = $_FILES['artwork']['tmp_name'];
+		$new_path = '../img/covers/album_'.$last_id.'.jpg';
+
+		if (in_array(end($info), $allow_image)) {
+			if (move_uploaded_file($old_path, $new_path)) {
+				$error['upload_artwork'] = '';
+				$path_to_img = 'album_'.$last_id.'.jpg';
+
+				$path_update = $pdo->prepare("UPDATE `album` SET path_to_image = :path_to_image WHERE album_id = :album_id");
+				$path_update->execute(array('path_to_image' => $path_to_img, 'album_id' => $last_id));
+			}
+		}
+		else {
+			$error['upload_artwork'] = TRUE;
+			header("Location: ../add_new_album.php?artist_id='.$artist.'&message=cover_not_uploaded");
+		}
+	}
 
 	if ($_FILES['song_file']['name']) {
 		// prepare data
@@ -343,9 +345,13 @@ function delete_from($delete_from_table, $delete_id) {
 	include '../includes/db.php';
 
 	if ($delete_from_table == 'song') {
+		
 		// delete song
 		$statement = $pdo->prepare("DELETE FROM `song` WHERE song_id = :song_id");
 		$statement->execute(array('song_id' => $delete_id));
+
+		// delete file
+		unlink('../music/song_'.$delete_id.'.mp3');
 	}
 
 	if ($delete_from_table == 'album') {
@@ -353,6 +359,8 @@ function delete_from($delete_from_table, $delete_id) {
 		$query = $pdo->prepare('DELETE FROM '.$delete_from_table.' WHERE album_id = :album_id');
 		$query->bindValue(':album_id', $delete_id);
 		$query->execute();
+
+		unlink('../img/covers/album_'.$delete_id.'.jpg');
 	}
 
 }

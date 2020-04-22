@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 22. Apr 2020 um 08:19
+-- Erstellungszeit: 22. Apr 2020 um 08:57
 -- Server-Version: 5.7.26
 -- PHP-Version: 7.3.8
 
@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS `album` (
   `artist_id` int(11) NOT NULL,
   `path_to_image` varchar(255) NOT NULL,
   PRIMARY KEY (`album_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `album`
 --
 
 INSERT INTO `album` (`album_id`, `album_name`, `album_year`, `artist_id`, `path_to_image`) VALUES
-(1, 'Purple Lambo Rmx', 2020, 1, 'd6ea587bd85be9fc3860564762788054.jpg');
+(5, 'molvin.mp3', 2020, 1, 'album_5.jpg');
 
 -- --------------------------------------------------------
 
@@ -174,6 +174,13 @@ CREATE TABLE IF NOT EXISTS `saved_songs` (
   KEY `saved_songs_fk1` (`song_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `saved_songs`
+--
+
+INSERT INTO `saved_songs` (`user_id_link`, `song_id`) VALUES
+(1, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -192,14 +199,14 @@ CREATE TABLE IF NOT EXISTS `song` (
   KEY `song_fk0` (`artist_id_link`),
   KEY `song_fk2` (`genre_id`),
   KEY `song_fk1` (`album_id_link`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `song`
 --
 
 INSERT INTO `song` (`song_id`, `artist_id_link`, `song_name`, `album_id_link`, `length`, `genre_id`, `plays`) VALUES
-(1, 1, 'Purple Lambo (molvin rmx)', 1, '00:26', 3, 5);
+(7, 1, 'oh hi, I\'m molvin', 5, '04:29', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `firstname`, `lastname`, `password_hash`, `password_token`, `is_artist`, `has_darkmode`, `insta`, `facebook`) VALUES
-(1, 'molvin95', 'molvinlauber@gmail.com', 'Melvin', 'Lauber', '$2y$10$Ip2e0mRFuXsysKTpi2m7eutFtjE.y1JM9qChKTzQIaXFjl/2lfqjO', '89d2f609914bc2f24c26df162b361d08', 1, 0, 'https://www.instagram.com/molvin.mp3/', NULL),
+(1, 'molvin95', 'molvinlauber@gmail.com', 'Melvin', 'Lauber', '$2y$10$GwPIuTBGoEg5LJHgQ36qneASwf6oGlgywj7nOXdR8RbeNaQCJqjky', '89d2f609914bc2f24c26df162b361d08', 1, 0, 'https://www.instagram.com/molvin.mp3/', NULL),
 (2, 'david.clausen', 'davidclausen2@lernende.bfo-vs.ch', 'David', 'Clausen', '$2y$10$h51xi20m3d6MvY8O16Y1A.6FB5vOV5R1uq9e.OWQ4KIXX.PftMUEu', 'e8bac3df99be1fb31c13a79f7a5bea04', 0, 0, NULL, NULL);
 
 --
