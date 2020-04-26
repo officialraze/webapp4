@@ -32,42 +32,19 @@ foreach ($pdo->query($friends_link) as $friend) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="de">
-	<head>
-		<meta charset="utf-8">
-		<title>Web Player | <?php echo MY_FRIENDS; ?></title>
+<h3 class="short_title"><?php echo MY_FRIENDS; ?></h3>
+<?php if (!empty($get_friends)) { ?>
+	<div class="artists_overview">
+		<?php foreach ($get_friends as $user) { ?>
+			<a href="classes/class.user.php?action=friend_function&user_id=<?php echo $user['id']; ?>">
+				<div class="artist_box">
+					<img src="img/profiles/user_<?php echo $user['id'];?>.jpg">
+					<h3 class="artist_name"><?php echo $user['firstname'].' '.$user['lastname']; ?></h3>
+				</div>
+			</a>
+		<?php } ?>
 
-		<?php include 'includes/meta_data.php'; ?>
-	</head>
-
-	<body class="<?php echo $body_class; ?>">
-		<?php include 'includes/navigation_left.php'; ?>
-		<?php include 'includes/cookie_banner.php'; ?>
-		<div id="playbar_wrapper_loader"></div>
-
-		<div class="main_content_wrapper">
-			<div class="main_content_inner">
-				<!-- search and main nav -->
-				<?php include 'includes/search_navi.php'; ?>
-				<h3 class="short_title"><?php echo MY_FRIENDS; ?></h3>
-
-				<?php if (!empty($get_friends)) { ?>
-					<div class="artists_overview">
-
-						<?php foreach ($get_friends as $user) { ?>
-							<a href="classes/class.user.php?action=friend_function&user_id=<?php echo $user['id']; ?>">
-								<div class="artist_box">
-									<img src="img/profiles/user_<?php echo $user['id'];?>.jpg">
-									<h3 class="artist_name"><?php echo $user['firstname'].' '.$user['lastname']; ?></h3>
-								</div>
-							</a>
-						<?php } ?>
-
-					</div>
-				<?php } else {
-					echo NO_DATA;
-				} ?>
-			</div>
-		</div>
-	</body>
+	</div>
+<?php } else {
+	echo NO_DATA;
+} ?>

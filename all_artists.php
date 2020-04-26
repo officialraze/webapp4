@@ -23,7 +23,7 @@ $all_artists = "SELECT * FROM `artist`";
 <div class="artists_overview">
 	<?php foreach ($pdo->query($all_artists) as $artist) {
 	?>
-	<a href="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>">
+	<a class="site_load_button" data-url="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>" href="#artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>">
 		<div class="artist_box">
 			<img src="img/artists/artist_<?php echo $artist['artist_id'];?>.jpg">
 			<h3 class="artist_name"><?php echo $artist['artist_firstname'].' '.$artist['artist_lastname']; ?></h3>
@@ -31,3 +31,23 @@ $all_artists = "SELECT * FROM `artist`";
 	</a>
 	<?php } ?>
 </div>
+
+<script type="text/javascript">
+
+	// load sites into div (enable crossplaying)
+	$(function() {
+		$('.site_load_button').click(function() {
+			var link = $(this).data('url');
+			$('.site_loader').load(link);
+			event.preventDefault();
+		});
+
+		// load if url isset
+		var url      = window.location.href;
+		var urlsplit = url.split(".php#")[1];
+		if (urlsplit) {
+			$('.site_loader').load(urlsplit);
+		}
+	});
+
+</script>

@@ -10,10 +10,17 @@ $(function() {
 
 	// load playbar
 	$('#playbar_wrapper_loader').load('includes/playbar.php');
+	playsong();
 
-	// change current navigation
-	$('.site_load_button').click(function () {
+	// change current main navigation
+	$('.main_navigation_element .site_load_button').click(function () {
 		$('.main_navigation_element').removeClass('active');
+		$(this).parent().addClass('active');
+	});
+
+	// change current navigation left
+	$('.navigation_element .site_load_button').click(function () {
+		$('.navigation_element').removeClass('active');
 		$(this).parent().addClass('active');
 	});
 
@@ -270,7 +277,7 @@ $(function() {
 });
 
 // play song if play button is clicked
-$(function() {
+function playsong() {
 	$('.play_song_class').click(function() {
 		var song_id = $(this).data('song');
 		var song_name = $(this).data('song_name');
@@ -306,7 +313,7 @@ $(function() {
 			$('#play-btn').trigger('click');
 		}, 300);
 	});
-});
+};
 
 
 // this is for the cookie banner

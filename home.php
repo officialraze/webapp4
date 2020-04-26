@@ -39,7 +39,7 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
         <div class="artists_u_like_elements">
             <?php foreach ($pdo->query($artist_query) as $artist) { ?>
                 <div class="artist_box">
-                    <a href="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>"><img src="img/artists/artist_<?php echo $artist['artist_id']; ?>.jpg" alt="<?php echo htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname']); ?>"></a>
+                    <a class="site_load_button" data-url="artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>" href="#artist_detail.php?artist_id=<?php echo $artist['artist_id']; ?>"><img src="img/artists/artist_<?php echo $artist['artist_id']; ?>.jpg" alt="<?php echo htmlspecialchars($artist['artist_firstname']).' '.htmlspecialchars($artist['artist_lastname']); ?>"></a>
                 </div>
             <?php } ?>
             <div class="cf"></div>
@@ -68,9 +68,9 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
                     ?>
                     <div class="popular_song">
                         <div class="popular_song_inner">
-                            <span class="play_song_wrapper play_song_class" data-cover=<?php echo $song_data['path_to_image']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo htmlspecialchars($song_data['song_name']);?>" data-artist_name="<?php echo htmlspecialchars($song_data['artist_firstname']).' '.htmlspecialchars($song_data['artist_lastname']); ?>">
-                                    <img src="img/assets/play.svg" alt="Play" class="svg play_song">
-                                </span>
+                            <a class="play_song_wrapper play_song_class" data-cover=<?php echo $song_data['path_to_image']; ?> data-album_id=<?php echo $song_data['album_id_link']; ?> data-artist_id=<?php echo $song_data['artist_id_link']; ?> data-song=<?php echo $song_data['song_id']; ?> data-song_name="<?php echo htmlspecialchars($song_data['song_name']);?>" data-artist_name="<?php echo htmlspecialchars($song_data['artist_firstname']).' '.htmlspecialchars($song_data['artist_lastname']); ?>">
+                                <img src="img/assets/play.svg" alt="Play" class="svg play_song">
+                            </a>
                             <img src="img/covers/<?php echo $song_data['path_to_image']?>" class="cover_img" alt="Cover" width="49px">
                             <div class="song_information">
                                 <h4 class="song_name"><?php echo htmlspecialchars($song_data['song_name']);?></h4>
@@ -146,6 +146,25 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 </div>
 
 <script type="text/javascript">
+
+    // load sites into div (enable crossplaying)
+    $(function() {
+        $('.site_load_button').click(function() {
+            var link = $(this).data('url');
+            $('.site_loader').load(link);
+            playsong();
+        });
+
+        // load if url isset
+        var url      = window.location.href;
+        var urlsplit = url.split(".php#")[1];
+        if (urlsplit) {
+            $('.site_loader').load(urlsplit);
+            playsong();
+        }
+
+    });
+
     // get last played artist id
     if ($.session.get('song_id')) {
         var artist_recently = $.session.get('artist_id');
