@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 22. Apr 2020 um 08:57
+-- Erstellungszeit: 03. Mai 2020 um 19:50
 -- Server-Version: 5.7.26
 -- PHP-Version: 7.3.8
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `album` (
   `artist_id` int(11) NOT NULL,
   `path_to_image` varchar(255) NOT NULL,
   PRIMARY KEY (`album_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `album`
@@ -118,13 +118,6 @@ CREATE TABLE IF NOT EXISTS `friends` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Daten für Tabelle `friends`
---
-
-INSERT INTO `friends` (`friends_id`, `user_id`) VALUES
-(2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -138,15 +131,7 @@ CREATE TABLE IF NOT EXISTS `playlist` (
   `playlist_description` text NOT NULL,
   PRIMARY KEY (`playlist_id`),
   KEY `playlist_fk0` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Daten für Tabelle `playlist`
---
-
-INSERT INTO `playlist` (`playlist_id`, `playlist_name`, `user_id`, `playlist_description`) VALUES
-(1, 'newest of raze', 1, 'Always listen to the newest releases of raze.exe'),
-(2, 'Top 50 EDM Charts', 1, 'Listen to the top 50 of EDM tracks.');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -199,14 +184,14 @@ CREATE TABLE IF NOT EXISTS `song` (
   KEY `song_fk0` (`artist_id_link`),
   KEY `song_fk2` (`genre_id`),
   KEY `song_fk1` (`album_id_link`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `song`
 --
 
 INSERT INTO `song` (`song_id`, `artist_id_link`, `song_name`, `album_id_link`, `length`, `genre_id`, `plays`) VALUES
-(7, 1, 'oh hi, I\'m molvin', 5, '04:29', 2, 1);
+(7, 1, 'oh hi, I\'m molvin', 5, '04:29', 2, 27);
 
 -- --------------------------------------------------------
 
