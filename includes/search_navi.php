@@ -26,6 +26,7 @@ if(isset($_SESSION['active_meta_nav'])) {
 			<li class="main_navigation_element <?php if($active_class_meta === 'all_users') { echo 'active'; } ?>"><a class="site_load_button" data-url="all_users.php" href="#all_users.php"><?php echo ALL_USERS; ?></a></li>
  			<li class="main_navigation_element <?php if($active_class_meta === 'genres') { echo 'active'; } ?>"><a class="site_load_button" data-url="genres.php" href="#genres.php"><?php echo GENRES; ?></a></li>
  			<li class="main_navigation_element <?php if($active_class_meta === 'playlists') { echo 'active'; } ?>"><a class="site_load_button" data-url="playlists.php" href="#playlists.php"><?php echo PLAYLISTS; ?></a></li>
+ 			<li class="main_navigation_element"><a href="visualizer.php">Visualizer</a></li>
 		</ul>
 	</div>
 	<div class="cf"></div>
