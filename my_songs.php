@@ -49,7 +49,7 @@ $playlist_query_menu = "SELECT * FROM `playlist`";
 						<img src="img/assets/play.svg" alt="Play" class="svg play_song">
 					</span></td>
 				<td class="song_name"><?php echo htmlspecialchars($saved_songs_data['song_name']); ?></td>
-				<td class="artist_name"><a href="artist_detail.php?artist_id=<?php echo 1; ?>">
+				<td class="artist_name"><a href="index.php#artist_detail.php?artist_id=<?php echo 1; ?>">
 					<?php echo htmlspecialchars($saved_songs_data['artist_firstname']).' '.htmlspecialchars($saved_songs_data['artist_lastname']); ?></a></td>
 				<td class="actions"><span class="like_wrapper like_song like <?php echo $like_class; ?>" data-song=<?php echo $saved_songs_data['song_id']; ?>>
 					<img src="img/assets/like.svg" alt="Like" class="svg"></span>
@@ -123,3 +123,23 @@ if ($no_data == TRUE) {
 	echo NO_DATA;
 }
 ?>
+
+<script type="text/javascript">
+
+	// load sites into div (enable crossplaying)
+	$(function() {
+		$('.site_load_button').click(function() {
+			var link = $(this).data('url');
+			$('.site_loader').load(link);
+			event.preventDefault();
+		});
+
+		// load if url isset
+		var url      = window.location.href;
+		var urlsplit = url.split(".php#")[1];
+		if (urlsplit) {
+			$('.site_loader').load(urlsplit);
+		}
+	});
+
+</script>

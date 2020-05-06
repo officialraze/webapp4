@@ -49,7 +49,7 @@ if ($statement_is_artist->rowCount() <= 0) {
 				<!-- search and main nav -->
 				<?php include 'includes/search_navi.php'; ?>
 
-				<a class="back_link" href="artist_detail.php?artist_id=<?php echo $artist_id; ?>"><?php echo BACK; ?></a>
+				<a class="back_link" href="index.php#artist_detail.php?artist_id=<?php echo $artist_id; ?>"><?php echo BACK; ?></a>
 
 				<div id="add_new_album_wrapper">
 					<h3 class="short_title popular_title"><?php echo ADD_NEW_ALBUM; ?></h3>

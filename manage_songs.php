@@ -56,7 +56,7 @@ else {
 			<div class="main_content_inner">
 				<!-- search and main nav -->
 				<?php include 'includes/search_navi.php'; ?>
-				<a class="back_link" href="artist_detail.php?artist_id=<?php echo $artist; ?>"><?php echo BACK; ?></a>
+				<a class="back_link" href="index.php#artist_detail.php?artist_id=<?php echo $artist; ?>"><?php echo BACK; ?></a>
 				<h3 class="short_title"><?php echo MANAGE_SONGS_ABLUMS; ?></h3>
 
 
