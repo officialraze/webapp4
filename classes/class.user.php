@@ -397,10 +397,10 @@ function save_user_settings() {
 			$statement->execute(array('password' => $password_hash));
 		}
 
-		header("Location: ../settings.php?message=true");
+		header("Location: ../index.php#settings.php?message=true");
 	}
 	else {
-		header("Location: ../settings.php?message=false");
+		header("Location: ../index.php#settings.php?message=false");
 	}
 
 }
@@ -433,14 +433,14 @@ function upload_user_image() {
 		if (in_array(end($info), $allow_image)) {
 			if (move_uploaded_file($old_path, $new_path)) {
 				$error['upload_user_image'] = '';
-				header("Location: ../settings.php?message=upload_user_image_successfull");
+				header("Location: ../index.php#settings.php?message=upload_user_image_successfull");
 			}
 			else {
 				$error['upload_user_image'] = TRUE;
 			}
 		}
 		else {
-			header("Location: ../settings.php?message=upload_user_image_not_successfull");
+			header("Location: ../index.php#settings.php?message=upload_user_image_not_successfull");
 		}
 	}
 }
@@ -474,7 +474,7 @@ function delete_account($password, $delete_user_id) {
 		header("Location: ../login.php?message=account_successfully_deleted");
 	}
 	else {
-		header("Location: ../settings.php?message=password_does_not_match");
+		header("Location: ../index.php#settings.php?message=password_does_not_match");
 	}
 
 }
@@ -503,12 +503,12 @@ function friend_function($user_id) {
 	if ($result == FALSE) {
 		$statement = $pdo->prepare("INSERT INTO friends (friends_id, user_id) VALUES (?, ?)");
 		$statement->execute(array($user_id, $_SESSION['user']['id']));
-		header("Location: ../all_users.php?message=friend_successfully_added");
+		header("Location: ../index.php#all_users.php?message=friend_successfully_added");
 	}
 	else {
 		$statement = $pdo->prepare("DELETE FROM friends WHERE friends_id = :friend_id AND user_id = :user_id");
 		$statement->execute(array('friend_id' => $user_id, 'user_id' => $_SESSION['user']['id']));
-		header("Location: ../all_users.php?message=friend_successfully_removed");
+		header("Location: ../index.php#all_users.php?message=friend_successfully_removed");
 	}
 
 }

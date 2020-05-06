@@ -160,7 +160,7 @@ function save_new_album() {
 					$new_path_music = '../music/song_'.$last_id_song.'.'.$ending;
 
 					if ($statement_music && move_uploaded_file($old_path_music, $new_path_music)) {
-						header("Location: ../artist_detail.php?artist_id=".$artist."&message=upload_successfull");
+						header("Location: ../index.php#artist_detail.php?artist_id=".$artist."&message=upload_successfull");
 					}
 					else {
 						header("Location: ../add_new_album.php?artist_id='.$artist.'&message=song_not_uploaded");
@@ -202,14 +202,14 @@ function upload_artist_image() {
 		if (in_array(end($info), $allow_image)) {
 			if (move_uploaded_file($old_path, $new_path)) {
 				$error['upload_artist_image'] = '';
-				header("Location: ../artist_detail.php?artist_id=".$artist."&message=upload_artist_image_successfull");
+				header("Location: ../index.php#artist_detail.php?artist_id=".$artist."&message=upload_successfull");
 			}
 			else {
 				$error['upload_artist_image'] = TRUE;
 			}
 		}
 		else {
-			header("Location: ../artist_detail.php?artist_id=".$artist."&message=upload_artist_image_false_file_format");
+			header("Location: ../index.php#artist_detail.php?artist_id=".$artist."&message=upload_artist_image_false_file_format");
 		}
 	}
 }
